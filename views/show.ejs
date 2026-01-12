@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= vendor.name %></title>
+</head>
+<body>
+    <a href="/vendors/">Back to Vendors!</a>
+    <h1><%= vendor.name %></h1>
+    <% if (vendor.isActivelyBlocking) { %>
+        <p>This vendor is still actively blocking!</p>
+        <% } else { %>
+            <p>This vendor is not actively blocking!</p>
+        <% } %>
+
+<form action="/vendors/<%= vendor.id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete <%= vendor.name %></button>
+</form>
+<a href="/vendors/<%= vendor.id %>/edit">Edit</a>
+</body>
+</html>

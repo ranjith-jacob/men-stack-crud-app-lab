@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= vendor.name %></title>
+</head>
+<body>
+    <h1>Edit <%= vendor.name %></h1>
+    <form action="/vendors/<%= vendor.id %>?_method=PUT" method="POST">
+        <label for="name">Name: </label>
+        <input type="text" name ="name" id="name" value="<%= vendor.name %>"/>
+
+        <label for="isActivelyBlocking">Still blocking?</label>
+        <input type="checkbox" name="isActivelyBlocking" id="isActivelyBlocking" id="isActivelyBlocking" <% if (vendor.isActivelyBlocking) { %> checked <%} %> />
+        <button type="submit">Update Vendor!</button>
+    </form>
+    <a href="/vendors">Back to All Vendors</a>
+</body>
+</html>
